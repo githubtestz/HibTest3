@@ -1,8 +1,15 @@
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
 /**
  * Created by Szef on 2014-11-29.
  */
+@Entity
 public class UserDetails
 {
+
+    @Id
     private int userId;
     private String userName;
 

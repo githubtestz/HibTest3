@@ -40,6 +40,12 @@ public class Main
     public static void main(final String[] args) throws Exception
     {
         final Session session = getSession();
+
+        UserDetails userDetails = new UserDetails();
+
+        userDetails.setUserId(2);
+        userDetails.setUserName("Second User");
+
         try
         {
             System.out.println("querying all the managed entities...");
@@ -55,11 +61,18 @@ public class Main
                     System.out.println("  " + o);
                 }
             }
+            session.beginTransaction();
+            session.save(userDetails);
+            session.getTransaction().commit();
         } finally
         {
             session.close();
         }
 
         System.out.println("Hello world");
+
+
+
+
     }
 }
